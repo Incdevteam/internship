@@ -1,0 +1,6 @@
+.husky
+.idea
+.next
+.yarn
+.vscode
+node_modules
