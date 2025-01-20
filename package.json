@@ -12,9 +12,11 @@
     "inspect": "npx @eslint/config-inspector@latest"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.5.0",
     "next": "15.1.4",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-hook-form": "^7.54.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.18.0",
