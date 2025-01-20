@@ -11,6 +11,7 @@ import nextPlugin from '@next/eslint-plugin-next'
 const config = [
   // General settings
   {
+    name: 'general options',
     files: ['*.js', '*.jsx', '*.ts', '*.tsx'],
     languageOptions: {
       globals: {
@@ -35,6 +36,7 @@ const config = [
   },
   // Ignored paths
   {
+    name: 'ignored paths',
     ignores: [
       '**/node_modules',
       '**/.pnpm-store/',
