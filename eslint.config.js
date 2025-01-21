@@ -56,6 +56,7 @@ export default [
       '**/tsconfig.json',
       '**/prettier.config.js',
       '**/stylelint.config.js',
+      '**/lint-staged.config.js',
       '**/tsconfig.json',
       '**/.env*',
       '**/.idea/',
