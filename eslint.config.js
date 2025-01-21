@@ -8,7 +8,7 @@ import globals from 'globals'
 import jsEslint from '@eslint/js'
 import nextPlugin from '@next/eslint-plugin-next'
 
-const config = [
+export default [
   // General settings
   {
     name: 'general options',
@@ -53,6 +53,9 @@ const config = [
       '**/__tests__/**',
       '.next',
       '*.config.{js,ts,mjs}',
+      '**/tsconfig.json',
+      '**/prettier.config.js',
+      '**/stylelint.config.js',
       '**/tsconfig.json',
       '**/.env*',
       '**/.idea/',
@@ -260,5 +263,3 @@ const config = [
     },
   },
 ]
-
-export default config
