@@ -9,7 +9,8 @@
     "format": "prettier --write src --ignore-unknown",
     "lint": "eslint",
     "lint:fix": "eslint src --no-error-on-unmatched-pattern --fix && stylelint --fix src/{,*/}*.{scss,css} --allow-empty-input",
-    "inspect": "npx @eslint/config-inspector@latest"
+    "inspect": "npx @eslint/config-inspector@latest",
+    "prepare": "husky"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.5.0",
@@ -19,6 +20,8 @@
     "react-hook-form": "^7.54.2"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
     "@eslint/js": "^9.18.0",
     "@next/eslint-plugin-next": "^15.1.4",
     "@types/node": "^22.10.6",
@@ -34,6 +37,8 @@
     "eslint-plugin-react": "^7.37.4",
     "eslint-plugin-react-hooks": "^5.1.0",
     "globals": "^15.14.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.1",
     "prettier": "^3.4.2",
     "stylelint": "^16.13.2",
     "stylelint-config-clean-order": "^7.0.0",
