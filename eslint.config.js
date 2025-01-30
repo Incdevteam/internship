@@ -7,6 +7,7 @@ import perfectionistPlugin from 'eslint-plugin-perfectionist'
 import globals from 'globals'
 import jsEslint from '@eslint/js'
 import nextPlugin from '@next/eslint-plugin-next'
+import storybookPlugin from 'eslint-plugin-storybook'
 
 export default [
   // General settings
@@ -230,9 +231,12 @@ export default [
       'prefer-const': 'error',
     },
   },
-  /// Storybook rules
+  // Storybook rules
   {
     name: 'storybook/rules',
+    plugins: {
+      storybook: storybookPlugin,
+    },
     files: ['**/*.stories.@(ts|tsx|js|jsx|mjs|cjs)', '**/*.story.@(ts|tsx|js|jsx|mjs|cjs)'],
     rules: {
       'react-hooks/rules-of-hooks': 'off',
@@ -250,6 +254,9 @@ export default [
   },
   {
     name: 'storybook/main',
+    plugins: {
+      storybook: storybookPlugin,
+    },
     files: ['.storybook/main.@(js|cjs|mjs|ts)'],
     rules: {
       'storybook/no-uninstalled-addons': 'error',
@@ -257,6 +264,9 @@ export default [
   },
   {
     name: 'storybook/stories',
+    plugins: {
+      storybook: storybookPlugin,
+    },
     files: ['**/*.stories.tsx'],
     rules: {
       'react-hooks/rules-of-hooks': 'off',
