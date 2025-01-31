@@ -1,0 +1,27 @@
+.button {
+  all: unset;
+
+  cursor: pointer;
+
+  box-sizing: border-box;
+  min-width: 100px;
+  padding: 5px;
+
+  font-family: inherit;
+  color: var(--light-100);
+  text-align: center;
+}
+
+.primary {
+  background-color: #1ea7fd;
+}
+
+.secondary {
+  background-color: #555ab9;
+}
+
+.outlined {
+  border: 1px solid #357a14;
+  color: #ccc;
+  background-color: transparent;
+}
