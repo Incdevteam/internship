@@ -1,0 +1,114 @@
+.root {
+  display: flex;
+  flex-direction: row;
+  gap: 44px;
+
+  /* g */
+}
+
+// Общие стили для .indicator и .frame
+.indicator {
+  position: relative;
+  z-index: 10;
+
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+
+  background-color: white;
+}
+
+.frame {
+  position: absolute;
+  z-index: 5;
+  inset: 0;
+
+  box-sizing: border-box;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+
+// Стили для .item
+.item {
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+
+  color: white;
+
+  // Отключенное состояние
+  &.disabled {
+    cursor: auto;
+    color: rgb(141 144 148);
+
+    .radio {
+      &::before,
+      &::after {
+        display: none;
+      }
+
+      .frame {
+        border-color: rgb(141 144 148);
+      }
+
+      .indicator {
+        background-color: rgb(141 144 148);
+      }
+    }
+  }
+
+  // Стили для .radio
+  .radio {
+    all: unset;
+
+    position: relative;
+
+    display: grid;
+    place-items: center;
+
+    box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+
+    // Подсветка при наведении (hover)
+    &:hover::before {
+      content: '';
+
+      position: absolute;
+      z-index: -1;
+
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+
+      background-color: rgb(51 51 51); // Dark/300
+    }
+
+    // Подсветка в активном состоянии (active)
+    &[data-state="checked"]::before {
+      content: '';
+
+      position: absolute;
+      z-index: -1;
+
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+
+      background-color: rgb(23 23 23); // Dark/500
+    }
+
+    // Подсветка при фокусе (focus)
+    &:focus::before {
+      background-color: rgb(23 23 23); // Dark/500
+    }
+
+    // Подсветка при нажатии (active)
+    &:active::before {
+      background-color: rgb(76 76 76); // Dark/100
+    }
+  }
+}
