@@ -1,0 +1,99 @@
+.root {
+  display: flex;
+  flex-direction: row;
+}
+
+/* Стили для контейнера вкладок */
+.list {
+  display: flex;
+  flex-shrink: 0;
+  gap: 60px;
+}
+
+.trigger {
+  all: unset;
+  cursor: pointer;
+
+  &.secondary {
+    position: relative; /* Для позиционирования псевдоэлемента */
+
+    min-width: 85px;
+    padding: 6px 24px;
+
+    /* Обводка кнопки для наглядности */
+    border: inherit;
+
+    /* H3 */
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(76 76 76);
+
+    transition: 300ms background-color;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      z-index: 1; /* Псевдоэлемент выше родителя */
+      right: 0;
+      bottom: 0; /* Позиция выше нижней границы кнопки */
+      left: 0;
+
+      width: 100%;
+      height: 2px;
+
+      background-color: rgb(76 76 76); /* Цвет линии */
+    }
+
+    &.full-width {
+      flex-grow: 1;
+    }
+
+    /* Эффект наведения */
+    &:hover {
+      background-color: rgb(35 78 153);
+    }
+
+    /* Эффект при фокусе */
+    &:focus {
+      border: 2px solid rgb(47 104 204);
+      border-radius: 2px;
+      background-color: transparent; /* Прозрачный фон при фокусе */
+      outline: none; /* Убираем стандартное обводка фокуса */
+    }
+
+    /* Эффект при удерживании кнопки */
+    &:active,
+    &:focus:active {
+      border: inherit;
+      background-color: rgb(115 165 255);
+    }
+
+    /* Эффект при отключенной кнопке */
+    &[data-disabled] {
+      cursor: not-allowed; /* Изменение курсора на "недоступно" */
+      border: transparent; /* Прозрачные границы */
+      color: rgb(51 51 51);
+      background-color: transparent; /* Прозрачный фон */
+
+      &::after {
+        background-color: rgb(51 51 51); /* Цвет псевдоэлемента */
+      }
+    }
+  }
+}
+
+// Стили выбранной вкладки для storybook
+.trigger[data-state="active"] {
+  border: 2px solid rgb(47 104 204);
+  border-radius: 2px;
+
+  color: rgb(76 76 76);
+
+  background-color: transparent; /* Прозрачный фон при фокусе */
+  outline: none;
+}
+
+.trigger[data-state="active"]::after {
+  background-color: rgb(76 76 76);
+}
