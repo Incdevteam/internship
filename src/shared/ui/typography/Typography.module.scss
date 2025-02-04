@@ -1,0 +1,67 @@
+/* Mixin for Text Styles */
+@mixin text-style($size, $weight, $line-height, $color: var(--dark-900)) {
+  font-family: var(--font-family);
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $line-height;
+  color: $color;
+}
+
+/* Applying Mixins to Classes */
+
+.large {
+  @include text-style(var(--font-size-large), var(--font-weight-semi-bold), var(--line-height-large));
+}
+
+.heading {
+  @include text-style(var(--font-size-heading), var(--font-weight-bold), var(--line-height-heading));
+}
+
+.subheading {
+  @include text-style(var(--font-size-subheading), var(--font-weight-bold), var(--line-height-subheading));
+}
+
+.section-heading {
+  @include text-style(var(--font-size-section-heading), var(--font-weight-semi-bold), var(--line-height-section-heading));
+}
+
+.regular-large {
+  @include text-style(var(--font-size-regular-large), var(--font-weight-regular), var(--line-height-regular));
+}
+
+.bold-large {
+  @include text-style(var(--font-size-regular-large), var(--font-weight-bold), var(--line-height-regular));
+}
+
+.regular-small {
+  @include text-style(var(--font-size-regular-small), var(--font-weight-regular), var(--line-height-small));
+}
+
+.medium-small {
+  @include text-style(var(--font-size-regular-small), var(--font-weight-medium), var(--line-height-small));
+}
+
+.bold-small {
+  @include text-style(var(--font-size-regular-small), var(--font-weight-bold), var(--line-height-small));
+}
+
+.small {
+  @include text-style(var(--font-size-small), var(--font-weight-regular), var(--line-height-subheading));
+}
+
+.semi-bold-small {
+  @include text-style(var(--font-size-small), var(--font-weight-semi-bold), var(--line-height-subheading));
+}
+
+.link-regular {
+  @include text-style(var(--font-size-regular-small), var(--font-weight-regular), var(--line-height-small), var(--primary-500));
+
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+}
+
+.link-small {
+  @include text-style(var(--font-size-small), var(--font-weight-regular), var(--line-height-subheading), var(--primary-500));
+
+  text-decoration: underline;
+  text-decoration-skip-ink: none;}
