@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, FC } from 'react'
+import { ComponentPropsWithoutRef, FC, ReactNode } from 'react'
 
 import { clsx } from 'clsx'
 import { Tabs } from 'radix-ui'
@@ -13,6 +13,8 @@ export interface TabType {
 }
 
 type CommonProps = {
+  /** Use TabsContent components as children. */
+  children?: ReactNode
   /** An array of objects with the value and title of the tab.
    *  {value: string, title: string}
    */
@@ -24,6 +26,7 @@ type CommonProps = {
 export type TabsProps = CommonProps
 
 export const TabsSwitcher: FC<TabsProps> = ({
+  children,
   className,
   fullWidth,
   tabs,
@@ -33,7 +36,7 @@ export const TabsSwitcher: FC<TabsProps> = ({
   const classNames = {
     list: clsx(s.list, s[variant]),
     root: clsx(s.root, className),
-    trigger: clsx(s.trigger, fullWidth && s.fullWidth, s[variant]),
+    trigger: clsx(s.trigger, fullWidth && s['full-width'], s[variant]),
   }
 
   return (
@@ -52,6 +55,21 @@ export const TabsSwitcher: FC<TabsProps> = ({
           </Tabs.Trigger>
         ))}
       </Tabs.List>
+      {children}
     </Tabs.Root>
+  )
+}
+
+export interface TabContentProps {
+  children: ReactNode
+  /** A unique value that associates the trigger with a content. */
+  value: string
+}
+
+export const TabContent: FC<TabContentProps> = ({ children, value }) => {
+  return (
+    <Tabs.Content className={s.content} value={value}>
+      {children}
+    </Tabs.Content>
   )
 }
