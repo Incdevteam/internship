@@ -1,49 +1,42 @@
-import React from 'react'
+import { ComponentPropsWithoutRef, ElementType } from 'react'
 
-import styles from './Typography.module.css'
+import styles from './Typography.module.scss'
 
 type TypographyVariant =
   | 'large'
-  | 'h1'
-  | 'h2'
-  | 'h3'
-  | 'regular-text-16'
-  | 'bold-text-16'
-  | 'regular-text-14'
-  | 'medium-text-14'
-  | 'bold-text-14'
-  | 'small-text'
-  | 'semi-bold-small-text'
-  | 'regular-link'
-  | 'small-link'
+  | 'heading'
+  | 'subheading'
+  | 'section-heading'
+  | 'regular-large'
+  | 'bold-large'
+  | 'regular-small'
+  | 'medium-small'
+  | 'bold-small'
+  | 'small'
+  | 'semi-bold-small'
+  | 'link-regular'
+  | 'link-small'
 
-interface TypographyProps {
+type TypographyProps<T extends ElementType = 'p'> = {
+  as?: T
   variant: TypographyVariant
-  children: React.ReactNode
-  className?: string
-  color?: string
-  align?: 'left' | 'center' | 'right'
-  onClick?: () => void
-}
+} & ComponentPropsWithoutRef<T>
 
-export const Typography = ({
+export const Typography = <T extends ElementType = 'p'>({
+  as,
   variant,
   children,
-  className = '',
-  color,
-  align = 'left',
-  onClick,
-}: TypographyProps) => {
-  const classNames = `${styles[variant]} ${className}`
+  ...props
+}: TypographyProps<T>) => {
+  const Component = as || 'p'
 
-  const style = {
-    ...(color ? { color } : {}),
-    ...(align !== 'left' ? { textAlign: align } : {}),
-  }
+  const { className, style, ...restProps } = props
+
+  const classNames = [styles[variant], className].filter(Boolean).join(' ')
 
   return (
-    <span className={classNames} style={style} onClick={onClick}>
+    <Component className={classNames} style={style} {...restProps}>
       {children}
-    </span>
+    </Component>
   )
 }
