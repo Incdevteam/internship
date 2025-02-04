@@ -18,14 +18,14 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-// История для дефолтного отображения радиокнопок без подсветки
-export const DefaultRadioButton: Story = {
+// История для дефолтной выбранной радиокнопки
+export const DefaultSelectedRadioButton: Story = {
   render: args => {
-    const [value, setValue] = useState<string | undefined>(undefined) // Ничего не выбрано
+    const [value, setValue] = useState('1') // Первая радиокнопка выбрана по умолчанию
 
     return (
       <>
-        <CustomRadioGroup {...args} value={value} onValueChange={setValue} />
+        <CustomRadioGroup {...args} value={value} onValueChange={setValue} defaultValue={'1'} />
         <div style={{ marginTop: '10px' }}>Selected value: {value}</div>
       </>
     )
@@ -33,23 +33,7 @@ export const DefaultRadioButton: Story = {
   args: {
     options: baseData,
     disabled: false, // Убедитесь, что кнопки не отключены
-  },
-}
-
-export const SelectedRadioButton: Story = {
-  render: args => {
-    const [value, setValue] = useState('1')
-
-    return (
-      <>
-        <CustomRadioGroup {...args} value={value} onValueChange={setValue} />
-        <div style={{ marginTop: '10px' }}>Selected value: {value}</div>
-      </>
-    )
-  },
-
-  args: {
-    options: baseData,
+    defaultValue: '1', // Явно указываем, что первая кнопка выбрана по умолчанию
   },
 }
 
