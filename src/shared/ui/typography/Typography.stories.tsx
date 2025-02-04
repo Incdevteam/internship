@@ -4,128 +4,90 @@ import { Typography } from './Typography'
 
 const meta: Storybook.Meta<typeof Typography> = {
   title: 'Shared/UI/Typography',
-  component: Typography,
   tags: ['autodocs'],
-  argTypes: {
-    variant: {
-      control: 'select',
-      options: [
-        'large',
-        'h1',
-        'h2',
-        'h3',
-        'regular-text-16',
-        'bold-text-16',
-        'regular-text-14',
-        'medium-text-14',
-        'bold-text-14',
-        'small-text',
-        'semi-bold-small-text',
-        'regular-link',
-        'small-link',
-      ],
-    },
-    color: {
-      control: 'color',
-    },
-    align: {
-      control: 'select',
-      options: ['left', 'center', 'right'],
-    },
-  },
+  component: Typography,
 }
 
 export default meta
 
 type Story = Storybook.StoryObj<typeof Typography>
 
-export const Large: Story = {
+export const CustomizableTypography: Story = {
   args: {
-    variant: 'large',
-    children: 'Large Text',
+    variant: 'regular-large',
+    children: 'Customizable Typography Component',
+    as: 'p',
+    style: { color: 'green' },
+  },
+  argTypes: {
+    variant: {
+      control: 'select',
+      options: [
+        'large',
+        'heading',
+        'subheading',
+        'section-heading',
+        'regular-large',
+        'bold-large',
+        'regular-small',
+        'medium-small',
+        'bold-small',
+        'small',
+        'semi-bold-small',
+        'link-regular',
+        'link-small',
+      ],
+    },
+    as: {
+      control: 'text',
+    },
+    style: {
+      control: 'object',
+    },
   },
 }
 
-export const H1: Story = {
-  args: {
-    variant: 'h1',
-    children: 'Heading 1',
-  },
-}
+export const AllVariants: Storybook.StoryFn<typeof Typography> = () => {
+  const variants = [
+    { variant: 'large', text: 'Large Text', fontSize: '26px', as: 'p' },
+    { variant: 'heading', text: 'Heading Text', fontSize: '20px', as: 'h1' },
+    { variant: 'subheading', text: 'Subheading Text', fontSize: '18px', as: 'h2' },
+    { variant: 'section-heading', text: 'Section Heading Text', fontSize: '16px', as: 'h3' },
+    { variant: 'regular-large', text: 'Regular Large Text', fontSize: '16px', as: 'p' },
+    { variant: 'bold-large', text: 'Bold Large Text', fontSize: '16px', as: 'p' },
+    { variant: 'regular-small', text: 'Regular Small Text', fontSize: '14px', as: 'p' },
+    { variant: 'medium-small', text: 'Medium Small Text', fontSize: '14px', as: 'p' },
+    { variant: 'bold-small', text: 'Bold Small Text', fontSize: '14px', as: 'p' },
+    { variant: 'small', text: 'Small Text', fontSize: '12px', as: 'p' },
+    { variant: 'semi-bold-small', text: 'Semi-Bold Small Text', fontSize: '12px', as: 'p' },
+    { variant: 'link-regular', text: 'Regular Link', fontSize: '14px', as: 'a', href: '#' },
+    { variant: 'link-small', text: 'Small Link', fontSize: '12px', as: 'a', href: '#' },
+  ]
 
-export const H2: Story = {
-  args: {
-    variant: 'h2',
-    children: 'Heading 2',
-  },
-}
-
-export const H3: Story = {
-  args: {
-    variant: 'h3',
-    children: 'Heading 3',
-  },
-}
-
-export const RegularText16: Story = {
-  args: {
-    variant: 'regular-text-16',
-    children: 'Regular Text 16px',
-  },
-}
-
-export const BoldText16: Story = {
-  args: {
-    variant: 'bold-text-16',
-    children: 'Bold Text 16px',
-  },
-}
-
-export const RegularText14: Story = {
-  args: {
-    variant: 'regular-text-14',
-    children: 'Regular Text 14px',
-  },
-}
-
-export const MediumText14: Story = {
-  args: {
-    variant: 'medium-text-14',
-    children: 'Medium Text 14px',
-  },
-}
-
-export const BoldText14: Story = {
-  args: {
-    variant: 'bold-text-14',
-    children: 'Bold Text 14px',
-  },
-}
-
-export const SmallText: Story = {
-  args: {
-    variant: 'small-text',
-    children: 'Small Text',
-  },
-}
-
-export const SemiBoldSmallText: Story = {
-  args: {
-    variant: 'semi-bold-small-text',
-    children: 'Semi-Bold Small Text',
-  },
-}
-
-export const RegularLink: Story = {
-  args: {
-    variant: 'regular-link',
-    children: 'Regular Link',
-  },
-}
-
-export const SmallLink: Story = {
-  args: {
-    variant: 'small-link',
-    children: 'Small Link',
-  },
+  return (
+    <div>
+      {variants.map(({ variant, as = 'p', text, fontSize, ...props }) => (
+        <div
+          key={variant}
+          style={{
+            marginBottom: '2rem',
+            borderBottom: '1px solid #afadad',
+            paddingBottom: '1rem',
+          }}
+        >
+          <Typography
+            variant={variant as any}
+            as={as as any}
+            {...props}
+            style={{ display: 'block' }}
+          >
+            {text}
+          </Typography>
+          <Typography variant={'small'} style={{ color: '#8a8d8c', marginTop: '0.5rem' }}>
+            {variant} : {fontSize} as <code>{as}</code>
+          </Typography>
+        </div>
+      ))}
+    </div>
+  )
 }
