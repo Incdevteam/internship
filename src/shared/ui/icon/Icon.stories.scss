@@ -1,0 +1,22 @@
+.icons-grid {
+    display: grid;
+    gap: 20px;
+    padding: 20px;
+}
+
+.category-block {
+    margin-bottom: 30px;
+}
+
+.icons-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.icon-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+}
