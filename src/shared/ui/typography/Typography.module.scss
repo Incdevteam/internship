@@ -1,5 +1,5 @@
 /* Mixin for Text Styles */
-@mixin text-style($size, $weight, $line-height, $color: var(--dark-900)) {
+@mixin text-style($size, $weight, $line-height, $color: var(--light-100)) {
   font-family: var(--font-family);
   font-size: $size;
   font-weight: $weight;
