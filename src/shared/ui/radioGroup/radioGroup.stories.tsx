@@ -18,8 +18,7 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-// История для дефолтной выбранной радиокнопки
-export const DefaultSelectedRadioButton: Story = {
+export const Default: Story = {
   render: args => {
     const [value, setValue] = useState('1') // Первая радиокнопка выбрана по умолчанию
 
@@ -33,11 +32,18 @@ export const DefaultSelectedRadioButton: Story = {
   args: {
     options: baseData,
     disabled: false, // Убедитесь, что кнопки не отключены
-    defaultValue: '1', // Явно указываем, что первая кнопка выбрана по умолчанию
   },
 }
 
-export const DisabledGroupRadioButton: Story = {
+export const Controlled: Story = {
+  args: {
+    options: baseData,
+    defaultValue: '2',
+    disabled: false, // Убедитесь, что кнопки не отключены
+  },
+}
+
+export const Disabled: Story = {
   args: {
     options: baseData,
     value: '1',
