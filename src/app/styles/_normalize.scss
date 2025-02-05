@@ -1,29 +1,67 @@
   html {
+    box-sizing: border-box;
+
     font-size: 10px;
-  }
-
-  html,
-  body {
-    overflow-x: hidden;
-    max-width: 100vw;
-  }
-
-  body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-size: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: var(--foreground);
-
-    background: var(--background);
   }
 
-  * {
+  *,
+  *::before,
+  *::after {
     box-sizing: border-box;
-    margin: 0;
-      padding: 0;
   }
 
-  a {
+  button {
+    all: unset;
+
+    cursor: pointer;
+    user-select: none;
+
+    display: inline-flex;
+    align-items: center;
+
+    box-sizing: border-box;
+
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    font-style: inherit;
     color: inherit;
-    text-decoration: none;
+
+    &:disabled {
+      cursor: default;
+    }
+  }
+
+  input,
+  select,
+  textarea,
+  optgroup,
+  option {
+    box-sizing: border-box;
+
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+    color: inherit;
+  }
+
+  a,
+  a:visited {
+    display: flex;
+    color: currentColor;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+
+    font-family: var(--font-family), sans-serif;
+    line-height: var(--line-height-regular);
+    color: var(--light-100);
+
+    background-color: var(--dark-700);
   }
