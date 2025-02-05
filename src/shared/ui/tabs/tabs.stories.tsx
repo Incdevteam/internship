@@ -84,7 +84,6 @@ export const PrimaryWithContent: Story = {
   ),
 }
 
-// История для варианта "primary" с отключенной вкладкой
 export const PrimaryWithDisabledTab: Story = {
   args: {
     variant: 'primary',
@@ -127,7 +126,6 @@ export const SecondaryWithSelectedTab: Story = {
   },
 }
 
-// История для отображения контента при выборе вкладки
 export const SecondaryWithContent: Story = {
   args: {
     variant: 'secondary',

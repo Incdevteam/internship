@@ -5,22 +5,28 @@ import { Tabs } from 'radix-ui'
 
 import s from './tabs.module.scss'
 
+import { Typography } from '../typography'
+
 export interface TabType {
-  disabled?: boolean
+  /** The title displayed on the tab. */
   title: string
   /** A unique value that associates the trigger with a content. */
   value: string
+  /** Indicates if the tab is disabled. */
+  disabled?: boolean
 }
 
 type CommonProps = {
-  /** Use TabsContent components as children. */
-  children?: ReactNode
   /** An array of objects with the value and title of the tab.
    *  {value: string, title: string}
    */
   tabs: TabType[]
+  /** Variant of the tabs, can be 'primary' or 'secondary'. */
   variant?: 'primary' | 'secondary'
+  /** If true, the tabs will take the full width of the container. */
   fullWidth?: boolean
+  /** Use TabsContent components as children. */
+  children?: ReactNode
 } & ComponentPropsWithoutRef<typeof Tabs.Root>
 
 export type TabsProps = CommonProps
@@ -49,7 +55,7 @@ export const TabsSwitcher: FC<TabsProps> = ({
             key={tab.value}
             value={tab.value}
           >
-            {/*<Typography variant="?????">*/}
+            {/*<Typography variant="section-heading">*/}
             {tab.title}
             {/*</Typography>*/}
           </Tabs.Trigger>
@@ -61,10 +67,13 @@ export const TabsSwitcher: FC<TabsProps> = ({
 }
 
 export interface TabContentProps {
+  /** The content to be displayed when the tab is active. */
   children: ReactNode
   /** A unique value that associates the trigger with a content. */
   value: string
 }
+
+/** A component that renders the content associated with a tab. */
 
 export const TabContent: FC<TabContentProps> = ({ children, value }) => {
   return (
