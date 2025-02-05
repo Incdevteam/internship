@@ -1,5 +1,7 @@
 import { ComponentPropsWithoutRef, ElementType } from 'react'
 
+import clsx from 'clsx'
+
 import styles from './Typography.module.scss'
 
 type TypographyVariant =
@@ -32,7 +34,7 @@ export const Typography = <T extends ElementType = 'p'>({
 
   const { className, style, ...restProps } = props
 
-  const classNames = [styles[variant], className].filter(Boolean).join(' ')
+  const classNames = clsx(styles[variant], className)
 
   return (
     <Component className={classNames} style={style} {...restProps}>
