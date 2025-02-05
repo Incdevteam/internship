@@ -81,10 +81,10 @@ export const AllVariants: Storybook.StoryFn<typeof Typography> = () => {
             {...props}
             style={{ display: 'block' }}
           >
-            {text}
+            {text} ({fontSize} as <code>{as}</code>)
           </Typography>
-          <Typography variant={'small'} style={{ color: '#8a8d8c', marginTop: '0.5rem' }}>
-            {variant} : {fontSize} as <code>{as}</code>
+          <Typography variant={'small'} style={{ color: '#717372', marginTop: '0.5rem' }}>
+            variant: {variant}
           </Typography>
         </div>
       ))}
