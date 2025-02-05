@@ -5,7 +5,7 @@ import { RadioGroup } from 'radix-ui'
 
 import s from './radioGroup.module.scss'
 
-// import {Typography} from '@/components/ui/typography'
+import { Typography } from '../typography'
 
 /**
  * Represents a single option in the radio group.
@@ -39,16 +39,13 @@ export const CustomRadioGroup: FC<RadioGroupProps> = ({ options, ...rest }) => {
   return (
     <RadioGroup.Root aria-label={'Aria label'} {...rest} className={s.root}>
       {options.map(el => (
-        // <Typography as={'label'} variant={'????'} key={el.value} className={labelClasses}>
-        <label key={el.value} className={labelClasses}>
+        <Typography as={'label'} variant={'regular-small'} key={el.value} className={labelClasses}>
           <RadioGroup.Item value={el.value} className={s.radio}>
             <div className={s.frame}></div>
             <RadioGroup.Indicator className={s.indicator} />
           </RadioGroup.Item>
           {el.label}
-
-          {/*</Typography>   */}
-        </label>
+        </Typography>
       ))}
     </RadioGroup.Root>
   )
