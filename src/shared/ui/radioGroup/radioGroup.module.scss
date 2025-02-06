@@ -1,0 +1,105 @@
+.root {
+  display: flex;
+  flex-direction: row;
+  gap: 44px;
+}
+
+.indicator {
+  position: relative;
+  z-index: 10;
+
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+
+  background-color: var(--light-100);
+}
+
+.frame {
+  position: absolute;
+  z-index: 5;
+  inset: 0;
+
+  box-sizing: border-box;
+  border: 2px solid var(--light-100);
+  border-radius: 50%;
+}
+
+.item {
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+
+  color: var(--light-100);
+
+  &.disabled {
+    cursor: auto;
+    color: var(--light-900);
+
+    .radio {
+      &::before,
+      &::after {
+        display: none;
+      }
+
+      .frame {
+        border-color: var(--light-900);
+      }
+
+      .indicator {
+        background-color: var(--light-900);
+      }
+    }
+  }
+
+  .radio {
+    all: unset;
+
+    position: relative;
+
+    display: grid;
+    place-items: center;
+
+    box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+
+    &:hover::before {
+      content: '';
+
+      position: absolute;
+      z-index: -1;
+
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+
+      background-color: var(--dark-300);
+    }
+
+
+    &[data-state="checked"]::before {
+      content: '';
+
+      position: absolute;
+      z-index: -1;
+
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+
+      background-color: transparent;
+    }
+
+    &:focus::before {
+      background-color: transparent;
+    }
+
+    &:active::before {
+      background-color: var(--dark-100);
+    }
+  }
+}
