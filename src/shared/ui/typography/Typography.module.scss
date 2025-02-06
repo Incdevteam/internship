@@ -10,7 +10,7 @@
 /* Applying Mixins to Classes */
 
 .large {
-  @include text-style(var(--font-size-large), var(--font-weight-semi-bold), var (--line-height-large));
+  @include text-style(var(--font-size-large), var(--font-weight-semi-bold), var(--line-height-large));
 }
 
 .h1 {
