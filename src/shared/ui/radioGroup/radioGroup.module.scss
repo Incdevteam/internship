@@ -12,7 +12,7 @@
   height: 10px;
   border-radius: 50%;
 
-  background-color: var(--light-100); /* Белый цвет */
+  background-color: var(--light-100);
 }
 
 .frame {
@@ -21,7 +21,7 @@
   inset: 0;
 
   box-sizing: border-box;
-  border: 2px solid var(--light-100); /* Белый цвет */
+  border: 2px solid var(--light-100);
   border-radius: 50%;
 }
 
@@ -33,11 +33,11 @@
   gap: 10px;
   align-items: center;
 
-  color: var(--light-100); /* Белый цвет */
+  color: var(--light-100);
 
   &.disabled {
     cursor: auto;
-    color: var(--light-900); /* Серый цвет */
+    color: var(--light-900);
 
     .radio {
       &::before,
@@ -46,11 +46,11 @@
       }
 
       .frame {
-        border-color: var(--light-900); /* Серый цвет */
+        border-color: var(--light-900);
       }
 
       .indicator {
-        background-color: var(--light-900); /* Серый цвет */
+        background-color: var(--light-900);
       }
     }
   }
@@ -77,10 +77,10 @@
       height: 36px;
       border-radius: 50%;
 
-      background-color: var(--dark-300); /* Темно-серый цвет */
+      background-color: var(--dark-300);
     }
 
-    // Подсветка в активном состоянии (active)
+
     &[data-state="checked"]::before {
       content: '';
 
@@ -99,7 +99,7 @@
     }
 
     &:active::before {
-      background-color: var(--dark-100); /* Темный цвет */
+      background-color: var(--dark-100);
     }
   }
 }

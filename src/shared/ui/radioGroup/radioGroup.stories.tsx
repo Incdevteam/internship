@@ -20,7 +20,7 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   render: args => {
-    const [value, setValue] = useState('1') // Первая радиокнопка выбрана по умолчанию
+    const [value, setValue] = useState('1')
 
     return (
       <>
@@ -31,7 +31,7 @@ export const Default: Story = {
   },
   args: {
     options: baseData,
-    disabled: false, // Убедитесь, что кнопки не отключены
+    disabled: false,
   },
 }
 
@@ -39,7 +39,7 @@ export const Controlled: Story = {
   args: {
     options: baseData,
     defaultValue: '2',
-    disabled: false, // Убедитесь, что кнопки не отключены
+    disabled: false,
   },
 }
 
