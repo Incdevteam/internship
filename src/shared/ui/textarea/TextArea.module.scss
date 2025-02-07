@@ -1,16 +1,20 @@
-.box {
+.root {
   display: flex;
   flex-direction: column;
   height: 100%;
-
 }
 
 .label, .error {
+  margin: 0;
   line-height: var(--line-height-small);
 }
 
 .label {
   color: var(--light-900);
+
+  &.disabled {
+    color: var(--dark-100);
+  }
 }
 
 .error {
@@ -35,7 +39,11 @@
   background-color: var(--dark-500);
   outline: none;
 
-  transition: 200ms background-color, 200ms color, 200ms border-color;
+  transition: background-color 200ms, color 200ms, border-color 200ms;
+
+  &::placeholder {
+    color: var(--light-900);
+  }
 
   &:active, &:focus {
     color: var(--light-100);
@@ -46,7 +54,16 @@
   }
 
   &:disabled {
+    cursor: not-allowed;
     color: var(--dark-100);
+
+    &::placeholder {
+      color: var(--dark-100);
+    }
   }
 }
+
+
+
+
 

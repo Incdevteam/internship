@@ -12,39 +12,40 @@ type TextAreaProps = {
 } & ComponentProps<'textarea'>
 
 export const TextArea = /* @__PURE__ */ forwardRef<HTMLTextAreaElement, TextAreaProps>(
-  ({ label, errorMessage, placeholder, className, onChange, onValueChange, ...restProps }, ref) => {
+  (props, ref) => {
+    const { label, errorMessage, disabled, className, onChange, onValueChange, ...restProps } =
+      props
     const showError = !!errorMessage && errorMessage.length > 0
 
-    const inputValueChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    const inputChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
       onChange?.(e)
       onValueChange?.(e.currentTarget.value)
     }
 
     const classNames = {
-      box: clsx(s.box, className),
-      label: clsx(s.label),
-      textArea: clsx(s.textarea),
-      error: clsx(s.error),
+      root: clsx(s.root, className),
+      label: clsx(s.label, disabled && s.disabled),
+      textArea: s.textarea,
+      error: s.error,
     }
 
     return (
-      <div className={s.box}>
+      <div className={classNames.root}>
         {label && (
-          <Typography className={s.label} variant={'regular-small'}>
+          <Typography className={classNames.label} variant={'regular-text-14'}>
             {label}
           </Typography>
         )}
         <textarea
-          className={classNames.textArea}
           ref={ref}
-          onChange={inputValueChangeHandler}
+          className={classNames.textArea}
+          onChange={inputChangeHandler}
+          disabled={disabled}
           {...restProps}
-          placeholder={placeholder}
-          // disabled={disabled}
         />
 
         {showError && (
-          <Typography className={classNames.error} variant={'regular-small'}>
+          <Typography className={classNames.error} variant={'regular-text-14'}>
             {errorMessage}
           </Typography>
         )}
@@ -52,3 +53,5 @@ export const TextArea = /* @__PURE__ */ forwardRef<HTMLTextAreaElement, TextArea
     )
   }
 )
+
+TextArea.displayName = 'TextArea'
