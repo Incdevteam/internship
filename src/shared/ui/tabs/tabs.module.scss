@@ -3,11 +3,11 @@
   flex-direction: column;
 }
 
-/* Стили для контейнера вкладок */
+
 .list {
   display: flex;
   flex-shrink: 0;
-  width: 100%; /* Позволяем списку занимать всю ширину родителя */
+  width: 100%;
 }
 
 .trigger {
@@ -15,163 +15,149 @@
 
   cursor: pointer;
 
-  box-sizing: border-box; /* Границы включены в размеры элемента */
-  border: 2px solid transparent; /* Прозрачные границы по умолчанию */
+  box-sizing: border-box;
+  border: 2px solid transparent;
 
-  transition: 0.2s; /* Плавные переходы */
-
+  transition: 0.2s;
 
   &.secondary {
-    position: relative; /* Для позиционирования псевдоэлемента */
-
+    position: relative;
     min-width: 85px;
     padding: 6px 24px;
-
-    /* H3 */
-    font-size: 16px;
-    font-weight: 600;
-    color: rgb(76 76 76);
+    color: var(--dark-100);
 
     &::after {
       content: '';
 
       position: absolute;
-      z-index: 1; /* Псевдоэлемент выше родителя */
+      z-index: 1;
       right: 0;
-      bottom: 0; /* Позиция выше нижней границы кнопки */
+      bottom: 0;
       left: 0;
 
       width: 100%;
       height: 2px;
 
-      background-color: rgb(76 76 76); /* Цвет линии */
+      background-color: var(--dark-100);
     }
 
     &.full-width {
       flex-grow: 1;
     }
 
-    /* Эффект наведения */
+
     &:hover {
-      background-color: rgb(35 78 153);
+      background-color: var(--primary-900);
     }
 
-    /* Эффект при фокусе */
+
     &:focus {
-      border: 2px solid rgb(47 104 204);
+      border: 2px solid var(--primary-700);
       border-radius: 2px;
       background-color: transparent;
-      outline: none; /* Убираем стандартное обводка фокуса */
+      outline: none;
     }
 
-    /* Эффект при удерживании кнопки */
+
     &:active,
     &:focus:active {
-      background-color: rgb(115 165 255);
+      background-color: var(--primary-100);
     }
 
-    /* Эффект при отключенной кнопке */
+
     &[data-disabled] {
-      cursor: not-allowed; /* Изменение курсора на "недоступно" */
-      border: 2px solid transparent !important; /* Прозрачные границы */
-      color: rgb(51 51 51);
+      cursor: not-allowed;
+      border: 2px solid transparent !important;
+      color: var(--dark-300);
       background-color: transparent;
 
       &::after {
-        background-color: rgb(51 51 51);
+        background-color: var(--dark-300);
       }
     }
 
-    // Стили для выбранной вкладки secondary
+
     &[data-state="active"] {
-      border: 2px solid rgb(47 104 204);
+      border: 2px solid var(--primary-700);
       border-radius: 2px;
-      color: rgb(76 76 76);
+      color: var(--dark-100);
       background-color: transparent;
 
       &::after {
-        background-color: rgb(76 76 76);
+        background-color: var(--dark-100);
       }
     }
   }
 
   &.primary {
-    position: relative; /* Для позиционирования псевдоэлемента */
-
+    position: relative;
     min-width: 85px;
     padding: 6px 24px;
-
-    /* H3 */
-    font-size: 16px;
-    font-weight: 600;
-    color: #397DF6; /* Основной цвет текста */
+    color: var(--primary-500);
 
     &::after {
       content: '';
 
       position: absolute;
-      z-index: 1; /* Псевдоэлемент выше родителя */
+      z-index: 1;
       right: 0;
-      bottom: 0; /* Позиция выше нижней границы кнопки */
+      bottom: 0;
       left: 0;
 
       width: 100%;
       height: 2px;
 
-      background-color: #397DF6;
+      background-color: var(--primary-500);
     }
 
     &.full-width {
       flex-grow: 1;
     }
 
-    /* Эффект наведения */
     &:hover {
-      background-color: #234E99;
+      background-color: var(--primary-900);
     }
 
-    /* Эффект при фокусе */
     &:focus {
-      border: 2px solid #2F68CC;
+      border: 2px solid var(--primary-700);
       border-radius: 2px;
       background-color: transparent;
-      outline: none; /* Убираем стандартное обводка фокуса */
+      outline: none;
     }
 
-    /* Эффект при удерживании кнопки */
+
     &:active,
     &:focus:active {
-      background-color: #73A5FF;
+      background-color: var(--primary-100);
     }
 
-    /* Эффект при отключенной кнопке */
+
     &[data-disabled] {
       cursor: not-allowed;
-      border: 2px solid transparent !important; /* Прозрачные границы */
-      color: #234E99;
+      border: 2px solid transparent !important;
+      color: var(--primary-900);
       background-color: transparent;
 
       &::after {
-        background-color: #234E99;
+        background-color: var(--primary-900);
       }
     }
 
-    // Стили для выбранной вкладки primary
+
     &[data-state="active"] {
-      border: 2px solid #2F68CC;
+      border: 2px solid var(--primary-700);
       border-radius: 2px;
-      color: #397DF6;
+      color: var(--primary-500);
       background-color: transparent;
 
       &::after {
-        background-color: #397DF6;
+        background-color: var(--primary-500);
       }
     }
   }
 }
 
 .content {
-  color: white; /* Пример: задайте черный цвет для тестирования */
+  color: inherit;
 }
-
 

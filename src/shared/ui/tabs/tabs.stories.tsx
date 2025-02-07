@@ -8,11 +8,11 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     variant: {
-      control: 'select', // Позволяет выбирать вариант в Storybook UI
+      control: 'select',
       options: ['primary', 'secondary'],
     },
     fullWidth: {
-      control: 'boolean', // Позволяет включать/выключать fullWidth
+      control: 'boolean',
     },
   },
 } satisfies Meta<typeof TabsSwitcher>
@@ -24,7 +24,7 @@ type Story = StoryObj<typeof meta>
 export const PrimaryDefault: Story = {
   args: {
     variant: 'primary',
-    fullWidth: false, // fullWidth отключен по умолчанию
+    fullWidth: false,
     tabs: [
       { value: 'tab1', title: 'Tab 1' },
       { value: 'tab2', title: 'Tab 2' },
@@ -35,7 +35,7 @@ export const PrimaryDefault: Story = {
 export const PrimaryFullWidth: Story = {
   args: {
     variant: 'primary',
-    fullWidth: true, // fullWidth включен
+    fullWidth: true,
     tabs: [
       { value: 'tab1', title: 'Tab 1' },
       { value: 'tab2', title: 'Tab 2' },
@@ -43,22 +43,20 @@ export const PrimaryFullWidth: Story = {
   },
 }
 
-// История для варианта "primary" с выбранной вкладкой по умолчанию
 export const PrimaryWithSelectedTab: Story = {
   args: {
     variant: 'primary',
     fullWidth: false,
-    defaultValue: 'tab1', // Вкладка "Tab 1" выбрана по умолчанию
+    defaultValue: 'tab1',
     tabs: [{ value: 'tab1', title: 'Tab 1' }],
   },
 }
 
-// История для отображения контента при выборе вкладки
 export const PrimaryWithContent: Story = {
   args: {
     variant: 'primary',
     fullWidth: false,
-    defaultValue: 'tab1', // Вкладка "Tab 1" выбрана по умолчанию
+    defaultValue: 'tab1',
     tabs: [
       { value: 'tab1', title: 'Tab 1' },
       { value: 'tab2', title: 'Tab 2' },
@@ -89,16 +87,14 @@ export const PrimaryWithDisabledTab: Story = {
     variant: 'primary',
     fullWidth: false,
     defaultValue: 'tab1',
-    tabs: [
-      { value: 'tab1', title: 'Tab 1', disabled: true }, // Вкладка "Tab 1" отключена
-    ],
+    tabs: [{ value: 'tab1', title: 'Tab 1', disabled: true }],
   },
 }
 
 export const SecondaryDefault: Story = {
   args: {
     variant: 'secondary',
-    fullWidth: false, // По умолчанию fullWidth отключен
+    fullWidth: false,
     tabs: [
       { value: 'tab1', title: 'Tab 1' },
       { value: 'tab2', title: 'Tab 2' },
@@ -109,7 +105,7 @@ export const SecondaryDefault: Story = {
 export const SecondaryFullWidth: Story = {
   args: {
     variant: 'secondary',
-    fullWidth: true, // По умолчанию fullWidth включен
+    fullWidth: true,
     tabs: [
       { value: 'tab1', title: 'Tab 1' },
       { value: 'tab2', title: 'Tab 2' },
@@ -121,7 +117,7 @@ export const SecondaryWithSelectedTab: Story = {
   args: {
     variant: 'secondary',
     fullWidth: false,
-    defaultValue: 'tab1', // Указываем, что вкладка "Tab 1" выбрана по умолчанию
+    defaultValue: 'tab1',
     tabs: [{ value: 'tab1', title: 'Tab 1' }],
   },
 }
@@ -130,7 +126,7 @@ export const SecondaryWithContent: Story = {
   args: {
     variant: 'secondary',
     fullWidth: false,
-    defaultValue: 'tab1', // Вкладка "Tab 1" выбрана по умолчанию
+    defaultValue: 'tab1',
     tabs: [
       { value: 'tab1', title: 'Tab 1' },
       { value: 'tab2', title: 'Tab 2' },
@@ -161,8 +157,6 @@ export const SecondaryWithDisabledTab: Story = {
     variant: 'secondary',
     fullWidth: false,
     defaultValue: 'tab1',
-    tabs: [
-      { value: 'tab1', title: 'Tab 1', disabled: true }, // Вкладка "Tab 1" отключена
-    ],
+    tabs: [{ value: 'tab1', title: 'Tab 1', disabled: true }],
   },
 }
