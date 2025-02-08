@@ -6,7 +6,6 @@
 
 .label, .error {
   margin: 0;
-  line-height: var(--line-height-small);
 }
 
 .label {
@@ -55,7 +54,6 @@
 
   &:disabled {
     cursor: not-allowed;
-    color: var(--dark-100);
 
     &::placeholder {
       color: var(--dark-100);
