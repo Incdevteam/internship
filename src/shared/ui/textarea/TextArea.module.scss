@@ -31,7 +31,6 @@
   border: 1px solid var(--dark-100);
   border-radius: 2px;
 
-  font-family: var(--font-family), sans-serif;
   font-size: var(--font-size-regular-large);
   line-height: var(--line-height-small);
   color: var(--light-900);
@@ -51,6 +50,14 @@
 
   &:focus {
     border-color: var(--primary-700);
+  }
+
+  &:active {
+    border-color: var(--light-100);
+  }
+
+  &.error {
+    border-color: var(--danger-500);
   }
 
   &:disabled {

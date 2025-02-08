@@ -1,4 +1,4 @@
-import { ChangeEvent, ComponentProps, forwardRef } from 'react'
+import { ChangeEvent, ComponentPropsWithRef, forwardRef } from 'react'
 
 import clsx from 'clsx'
 import { Typography } from 'shared/ui/typography'
@@ -9,7 +9,7 @@ type TextAreaProps = {
   label?: string
   errorMessage?: string
   onValueChange?: (text: string) => void
-} & ComponentProps<'textarea'>
+} & ComponentPropsWithRef<'textarea'>
 
 export const TextArea = /* @__PURE__ */ forwardRef<HTMLTextAreaElement, TextAreaProps>(
   (props, ref) => {
@@ -25,7 +25,7 @@ export const TextArea = /* @__PURE__ */ forwardRef<HTMLTextAreaElement, TextArea
     const classNames = {
       root: clsx(s.root, className),
       label: clsx(s.label, disabled && s.disabled),
-      textArea: s.textarea,
+      textArea: clsx(s.textarea, errorMessage && s.error),
       error: s.error,
     }
 
