@@ -89,7 +89,7 @@ export default [
           'ts-ignore': 'allow-with-description',
         },
       ],
-      '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
+      '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
     },
   },
   // React rules
