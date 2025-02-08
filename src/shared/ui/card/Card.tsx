@@ -11,7 +11,7 @@ type Props = {
 
 export const Card = ({ children, className, ...props }: Props) => {
   return (
-    <div className={clsx(className, styles.root)} {...props}>
+    <div className={clsx(styles.root, className)} {...props}>
       {children}
     </div>
   )
